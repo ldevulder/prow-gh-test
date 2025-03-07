@@ -1,0 +1,17 @@
+periodics:
+- name: another-periodcs-echo-test-job
+  # At 00:00 on 1st every month
+  # cron: 0 0 1 * *
+  interval: 10m
+  decorate: true
+  specs:
+    containers:
+    - image: registry.opensuse.org/opensuse/leap
+      command:
+      - /bin/bash
+      args:
+      - -c
+      - |
+        echo "Just a simple periodics job test scheduled with Prow!"
+        mkdir -p /tmp/prow.d
+        echo "Test!" > /tmp/prow.d/foo
