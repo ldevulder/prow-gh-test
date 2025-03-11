@@ -15,3 +15,10 @@ periodics:
         echo "Just a simple periodics job test scheduled with Prow!"
         mkdir -p /tmp/prow.d
         echo "Test!" > /tmp/prow.d/foo
+- name: inrepo-periodic
+  interval: 5m
+  agent: kubernetes
+  spec:
+    containers:
+    - image: alpine
+      command: ["/bin/date"]
