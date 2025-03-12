@@ -3,8 +3,7 @@ periodics:
   # At 00:00 on 1st every month
   # cron: 0 0 1 * *
   interval: 10m
-  decorate: true
-  specs:
+  spec:
     containers:
     - image: registry.opensuse.org/opensuse/leap
       command:
