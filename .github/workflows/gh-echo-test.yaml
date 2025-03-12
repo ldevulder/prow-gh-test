@@ -1,0 +1,24 @@
+name: Simple Echo Test
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run test
+        env:
+          COV_THRESHOLD: "70"
+        run: |
+          set -e
+
+          echo "Simple Test!"
