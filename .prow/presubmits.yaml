@@ -10,7 +10,7 @@ presubmits:
 - name: pull-test-within-leap
   always_run: true
   decorate: true
-  specs:
+  spec:
     containers:
     - image: registry.opensuse.org/opensuse/leap
       command:
