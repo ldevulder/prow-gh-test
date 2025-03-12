@@ -23,17 +23,17 @@ presubmits:
         echo "Test!" > /tmp/prow.d/foo
 - name: inrepo-blocking-test-presubmit
   always_run: true
-   decorate: true
-   spec:
-     containers:
-       - image: alpine
-         command: ["echo"]
-         args: ["Hello from inrepoconfig blocking presubmit job!"]
- - name: inrepo-optional-test-presubmit
-   always_run: false
-   decorate: true
-   spec:
-     containers:
-       - image: alpine
-         command: ["echo"]
-         args: ["Hello from inrepoconfig optional presubmit job!"]
+  decorate: true
+  spec:
+    containers:
+      - image: alpine
+        command: ["echo"]
+        args: ["Hello from inrepoconfig blocking presubmit job!"]
+- name: inrepo-optional-test-presubmit
+  always_run: false
+  decorate: true
+  spec:
+    containers:
+      - image: alpine
+        command: ["echo"]
+        args: ["Hello from inrepoconfig optional presubmit job!"]
