@@ -1,0 +1,24 @@
+presubmits:
+  ldevudler/prow-gh-test:
+  - name: pull-date-test
+    always_run: true
+    decorate: true
+    spec:
+      containers:
+      - image: alpine
+        command:
+        - /bin/date
+  - name: pull-test-within-leap
+    always_run: true
+    decorate: true
+    specs:
+      containers:
+      - image: registry.opensuse.org/opensuse/leap
+        command:
+        - /bin/bash
+        args:
+        - -c
+        - |
+          echo "Just a simple periodics job test scheduled with Prow!"
+          mkdir -p /tmp/prow.d
+          echo "Test!" > /tmp/prow.d/foo
